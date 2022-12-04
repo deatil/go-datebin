@@ -18,6 +18,9 @@ import (
 // 时区可不设置
 timezone := datebin.UTC
 
+// 全局设置时区，对使用帮助函数有效
+datebin.SetTimezone(timezone)
+
 // 固定时间
 date := datebin.
     Now().
@@ -190,6 +193,33 @@ res := timeA.BetweenIncludStart(timeB, timeC)
 
 // timeA 是否在两个时间之间(包括结束时间)
 res := timeA.BetweenIncludEnd(timeB, timeC)
+
+// 最小值
+res := timeA.Min(timeB)
+res := timeA.Minimum(timeB)
+
+// 最大值
+res := timeA.Max(timeB)
+res := timeA.Maximum(timeB)
+
+// 平均值
+res := timeA.Avg(timeB)
+res := timeA.Average(timeB)
+
+// 取 a 和 b 中与当前时间最近的一个
+res := timeA.Closest(timeB, timeC)
+
+// 取 a 和 b 中与当前时间最远的一个
+res := timeA.Farthest(timeB, timeC)
+
+// 年龄，可为负数
+res := timeA.Age()
+
+// 用于查找将规定的持续时间 'd' 舍入为 'm' 持续时间的最接近倍数的结果
+res := timeA.Round(d time.Duration)
+
+// 用于查找将规定的持续时间 'd' 朝零舍入到 'm' 持续时间的倍数的结果
+res := timeA.Truncate(d time.Duration)
 ~~~
 
 
@@ -250,6 +280,42 @@ res := time.TimestampWithMicrosecond()
 
 // 纳秒级时间戳，19位
 res := time.TimestampWithNanosecond()
+
+// 返回年月日数据
+year, month, day := time.Date()
+
+// 返回时分秒数据
+hour, minute, second := time.Time()
+
+// 返回年月日时分秒数据
+year, month, day, hour, minute, second := time.Datetime()
+
+// 返回年月日时分秒数据带纳秒
+year, month, day, hour, minute, second, nanosecond := time.DatetimeWithNanosecond()
+
+// 返回年月日时分秒数据带微秒
+year, month, day, hour, minute, second, microsecond := time.DatetimeWithMicrosecond()
+
+// 返回年月日时分秒数据带毫秒
+year, month, day, hour, minute, second, millisecond := time.DatetimeWithMillisecond()
+
+// 获取本月的总天数
+res := time.DaysInMonth()
+
+// 获取本年的第几月
+res := time.MonthOfYear()
+
+// 获取本年的第几天
+res := time.DayOfYear()
+
+// 获取本月的第几天
+res := time.DayOfMonth()
+
+// 获取本周的第几天
+res := time.DayOfWeek()
+
+// 获取本年的第几周
+res := time.WeekOfYear()
 ~~~
 
 
@@ -299,7 +365,7 @@ data := diffTime.Format("时间相差 {s} 秒")
 time := datebin.Parse("2022-10-23 22:18:56")
 
 // 常用加减时间
-date := time.SubYears(uint(2)).
+date := time.SubYears(uint(2)). # 年
     // SubYears(uint(2))
     // SubYearsNoOverflow(uint(2))
     // SubYear()
@@ -310,6 +376,7 @@ date := time.SubYears(uint(2)).
     // AddYear()
     // AddYearNoOverflow()
 
+    // 月份
     // SubMonths(uint(2))
     // SubMonthsNoOverflow(uint(2))
     // SubMonth()
@@ -320,24 +387,28 @@ date := time.SubYears(uint(2)).
     // AddMonth()
     // AddMonthNoOverflow()
 
+    // 周
     // SubWeekdays(uint(2))
     // SubWeekday()
 
     // AddWeekdays(uint(2))
     // AddWeekday()
 
+    // 天
     // SubDays(uint(2)) # 前 n 天
     // SubDay() # 前一天
 
     // AddDays(uint(2)) # 后 n 天
     // AddDay() # 后一天
 
+    // 小时
     // SubHours(uint(2))
     // SubHour()
 
     // AddHours(uint(2))
     // AddHour()
-
+    
+    // 分钟
     // SubMinutes(uint(2))
     // SubMinute()
 
@@ -373,4 +444,129 @@ date := time.SubYears(uint(2)).
     // AddNanosecond()
 
     ToDatetimeString()
+~~~
+
+
+#### 判断是否是
+
+~~~go
+// 准备时间
+time := datebin.Parse("2022-10-23 22:18:56")
+
+// 是否是零值时间
+res := datebin.IsZero()
+
+// 是否是无效时间
+res := datebin.IsInvalid()
+
+// 是否是 UTC 时区
+res := datebin.IsUTC()
+
+// 是否是本地时区
+res := datebin.IsLocal()
+
+// 是否是当前时间
+res := datebin.IsNow()
+
+// 是否是未来时间
+res := datebin.IsFuture()
+
+// 是否是过去时间
+res := datebin.IsPast()
+
+// 是否是闰年
+res := datebin.IsLeapYear()
+
+// 是否是长年
+res := datebin.IsLongYear()
+
+// 是否是今天
+res := datebin.IsToday()
+
+// 是否是昨天
+res := datebin.IsYesterday()
+
+// 是否是明天
+res := datebin.IsTomorrow()
+
+// 是否是当年
+res := datebin.IsCurrentYear()
+
+// 是否是当月
+res := datebin.IsCurrentMonth()
+
+// 时间是否是当前最近的一周
+res := datebin.IsLatelyWeek()
+
+// 时间是否是当前最近的一个月
+res := datebin.IsLatelyMonth()
+
+// 是否是当前月最后一天
+res := datebin.IsLastOfMonth()
+
+// 是否当天开始
+res := datebin.IsStartOfDay()
+
+// 是否当天开始
+res := datebin.IsStartOfDayWithMicrosecond()
+
+// 是否当天结束
+res := datebin.IsEndOfDay()
+
+// 是否当天结束
+res := datebin.IsEndOfDayWithMicrosecond()
+
+// 是否是半夜
+res := datebin.IsMidnight()
+
+// 是否是中午
+res := datebin.IsMidday()
+
+// 是否是春季
+res := datebin.IsSpring()
+
+// 是否是夏季
+res := datebin.IsSummer()
+
+// 是否是秋季
+res := datebin.IsAutumn()
+
+// 是否是冬季
+res := datebin.IsWinter()
+
+// 是否是一月
+res := datebin.IsJanuary()
+
+// 是否是二月
+res := datebin.IsFebruary()
+
+// 是否是三月
+res := datebin.IsMarch()
+
+// 是否是四月
+res := datebin.IsApril()
+
+// 是否是五月
+res := datebin.IsMay()
+
+// 是否是六月
+res := datebin.IsJune()
+
+// 是否是七月
+res := datebin.IsJuly()
+
+// 是否是八月
+res := datebin.IsAugust()
+
+// 是否是九月
+res := datebin.IsSeptember()
+
+// 是否是十月
+res := datebin.IsOctober()
+
+// 是否是十一月
+res := datebin.IsNovember()
+
+// 是否是十二月
+res := datebin.IsDecember()
 ~~~
