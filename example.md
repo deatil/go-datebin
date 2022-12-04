@@ -454,119 +454,119 @@ date := time.SubYears(uint(2)). # 年
 time := datebin.Parse("2022-10-23 22:18:56")
 
 // 是否是零值时间
-res := datebin.IsZero()
+res := time.IsZero()
 
 // 是否是无效时间
-res := datebin.IsInvalid()
+res := time.IsInvalid()
 
 // 是否是 UTC 时区
-res := datebin.IsUTC()
+res := time.IsUTC()
 
 // 是否是本地时区
-res := datebin.IsLocal()
+res := time.IsLocal()
 
 // 是否是当前时间
-res := datebin.IsNow()
+res := time.IsNow()
 
 // 是否是未来时间
-res := datebin.IsFuture()
+res := time.IsFuture()
 
 // 是否是过去时间
-res := datebin.IsPast()
+res := time.IsPast()
 
 // 是否是闰年
-res := datebin.IsLeapYear()
+res := time.IsLeapYear()
 
 // 是否是长年
-res := datebin.IsLongYear()
+res := time.IsLongYear()
 
 // 是否是今天
-res := datebin.IsToday()
+res := time.IsToday()
 
 // 是否是昨天
-res := datebin.IsYesterday()
+res := time.IsYesterday()
 
 // 是否是明天
-res := datebin.IsTomorrow()
+res := time.IsTomorrow()
 
 // 是否是当年
-res := datebin.IsCurrentYear()
+res := time.IsCurrentYear()
 
 // 是否是当月
-res := datebin.IsCurrentMonth()
+res := time.IsCurrentMonth()
 
 // 时间是否是当前最近的一周
-res := datebin.IsLatelyWeek()
+res := time.IsLatelyWeek()
 
 // 时间是否是当前最近的一个月
-res := datebin.IsLatelyMonth()
+res := time.IsLatelyMonth()
 
 // 是否是当前月最后一天
-res := datebin.IsLastOfMonth()
+res := time.IsLastOfMonth()
 
 // 是否当天开始
-res := datebin.IsStartOfDay()
+res := time.IsStartOfDay()
 
 // 是否当天开始
-res := datebin.IsStartOfDayWithMicrosecond()
+res := time.IsStartOfDayWithMicrosecond()
 
 // 是否当天结束
-res := datebin.IsEndOfDay()
+res := time.IsEndOfDay()
 
 // 是否当天结束
-res := datebin.IsEndOfDayWithMicrosecond()
+res := time.IsEndOfDayWithMicrosecond()
 
 // 是否是半夜
-res := datebin.IsMidnight()
+res := time.IsMidnight()
 
 // 是否是中午
-res := datebin.IsMidday()
+res := time.IsMidday()
 
 // 是否是春季
-res := datebin.IsSpring()
+res := time.IsSpring()
 
 // 是否是夏季
-res := datebin.IsSummer()
+res := time.IsSummer()
 
 // 是否是秋季
-res := datebin.IsAutumn()
+res := time.IsAutumn()
 
 // 是否是冬季
-res := datebin.IsWinter()
+res := time.IsWinter()
 
 // 是否是一月
-res := datebin.IsJanuary()
+res := time.IsJanuary()
 
 // 是否是二月
-res := datebin.IsFebruary()
+res := time.IsFebruary()
 
 // 是否是三月
-res := datebin.IsMarch()
+res := time.IsMarch()
 
 // 是否是四月
-res := datebin.IsApril()
+res := time.IsApril()
 
 // 是否是五月
-res := datebin.IsMay()
+res := time.IsMay()
 
 // 是否是六月
-res := datebin.IsJune()
+res := time.IsJune()
 
 // 是否是七月
-res := datebin.IsJuly()
+res := time.IsJuly()
 
 // 是否是八月
-res := datebin.IsAugust()
+res := time.IsAugust()
 
 // 是否是九月
-res := datebin.IsSeptember()
+res := time.IsSeptember()
 
 // 是否是十月
-res := datebin.IsOctober()
+res := time.IsOctober()
 
 // 是否是十一月
-res := datebin.IsNovember()
+res := time.IsNovember()
 
 // 是否是十二月
-res := datebin.IsDecember()
+res := time.IsDecember()
 ~~~
