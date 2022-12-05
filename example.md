@@ -1,6 +1,28 @@
 ### 使用
 
-常用的一些使用示例，更多示例可以点击 [文档](pkg.go.dev/github.com/deatil/go-datebin) 查看
+go-datebin 常用的一些使用示例。更多未提及方法可以 [点击文档](pkg.go.dev/github.com/deatil/go-datebin) 查看
+
+
+### 目录
+
+- [引入包](#引入包)
+- [获取错误信息及常规数据获取和设置](#获取错误信息及常规数据获取和设置)
+- [固定时间使用](#固定时间使用)
+- [根据具体时间进行格式化](#根据具体时间进行格式化)
+- [解析使用](#解析使用)
+- [数据输出](#数据输出)
+- [快捷方式](#快捷方式)
+- [比较时间](#比较时间)
+- [获取时间](#获取时间)
+- [求两个时间差值](#求两个时间差值)
+- [常用加减时间](#常用加减时间)
+- [判断是否是](#判断是否是)
+    - [判断是否是几月](#判断是否是几月)
+    - [判断是否是某星座](#判断是否是某星座)
+    - [判断是否是周几](#判断是否是周几)
+    - [判断是否相等](#判断是否相等)
+- [时间设置](#时间设置)
+- [获取范围时间](#获取范围时间)
 
 
 #### 引入包
@@ -9,6 +31,41 @@
 import (
     "github.com/deatil/go-datebin/datebin"
 )
+~~~
+
+
+#### 获取错误信息及常规数据获取和设置
+
+~~~go
+var datebinErr error
+
+// 方式1
+date := datebin.
+    Now().
+    OnError(func(err error) {
+        datebinErr = err
+    }).
+    ToDatetimeString()
+
+// 方式2
+err := datebin.
+    Parse("2022-101-23 22:18:56").
+    GetError()
+
+// 常规数据设置及获取
+datebin.WithTime(time time.Time) # 设置时间
+datebin.GetTime() time.Time # 获取时间
+datebin.WithWeekStartAt(weekday time.Weekday) # 设置周开始时间
+datebin.GetWeekStartAt() time.Weekday # 获取周开始时间
+datebin.WithLocation(loc *time.Location) # 设置时区
+datebin.GetLocation() *time.Location # 获取时区
+datebin.GetLocationString() string # 获取时区字符
+datebin.WithTimezone(timezone string) # 设置时区
+datebin.SetTimezone(timezone string) # 设置时区, 直接更改
+datebin.UseLocTime() # 使用设置的时区
+datebin.GetTimezone() # 获取时区 Zone 名称
+datebin.GetOffset() # 获取距离UTC时区的偏移量，单位秒
+datebin.GetError() # 获取错误信息
 ~~~
 
 
@@ -774,4 +831,35 @@ res := time.SetNanosecond(nanosecond)
 
 // 显示设置后的时间
 date := res.ToDatetimeString()
+~~~
+
+
+#### 获取范围时间
+
+~~~go
+// 准备时间
+res := datebin.Parse("2022-10-23 22:18:56").
+    NYearStart(2). # 当前n年开始
+    // NYearEnd(2). # 当前n年结束
+    // CenturyStart(). # 当前百年开始
+    // CenturyEnd(). # 当前百年结束
+    // DecadeStart(). # 当前十年开始
+    // DecadeEnd(). # 当前十年结束
+    // YearStart(). # 本年开始
+    // YearEnd(). # 本年结束
+    // SeasonStart(). # 本季节开始时间
+    // SeasonEnd(). # 本季节结束时间
+    // MonthStart(). # 本月开始时间
+    // MonthEnd(). # 本月结束时间
+    // WeekStart(). # 本周开始
+    // WeekEnd(). # 本周结束
+    // DayStart(). # 本日开始时间
+    // DayEnd(). # 本日结束时间
+    // HourStart(). # 小时开始时间
+    // HourEnd(). # 小时结束时间
+    // MinuteStart(). # 分钟开始时间
+    // MinuteEnd(). # 分钟结束时间
+    // SecondStart(). # 秒开始时间
+    // SecondEnd(). # 秒结束时间
+    ToDatetimeString()
 ~~~
