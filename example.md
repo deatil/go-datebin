@@ -709,5 +709,69 @@ res := timeA.IsSameYearMonthDay(timeB)
 
 // 是否是相同生日日期
 res := timeA.IsSameBirthday(timeB)
+~~~
 
+
+#### 时间设置
+
+~~~go
+// 准备时间
+time := datebin.Parse("2022-10-23 22:18:56")
+
+// 预设周几
+// datebin.Monday | datebin.Tuesday | datebin.Wednesday
+// datebin.Thursday | datebin.Friday | datebin.Saturday
+// datebin.Sunday 
+day := datebin.Monday
+
+// 设置一周的开始日期
+res := time.SetWeekStartsAt(day)
+
+// 日期时间带纳秒
+res := time.SetDatetimeWithNanosecond(year, month, day, hour, minute, second, nanosecond)
+
+// 日期时间带微秒
+res := time.SetDatetimeWithMicrosecond(year, month, day, hour, minute, second, microsecond)
+
+// 日期时间带毫秒
+res := time.SetDatetimeWithMillisecond(year, month, day, hour, minute, second, millisecond)
+
+// 日期时间
+res := time.SetDatetime(year, month, day, hour, minute, second)
+
+// 日期
+res := time.SetDate(year, month, day)
+
+// 时间
+res := time.SetTime(hour, minute, second)
+
+// 设置年份
+res := time.SetYear(year)
+
+// 设置月份
+res := time.SetMonth(month)
+
+// 设置天
+res := time.SetDay(day)
+
+// 设置小时
+res := time.SetHour(hour)
+
+// 设置分钟
+res := time.SetMinute(minute)
+
+// 设置秒数
+res := time.SetSecond(second)
+
+// 设置毫秒
+res := time.SetMillisecond(millisecond)
+
+// 设置微秒
+res := time.SetMicrosecond(microsecond)
+
+// 设置纳秒
+res := time.SetNanosecond(nanosecond)
+
+// 显示设置后的时间
+date := res.ToDatetimeString()
 ~~~
