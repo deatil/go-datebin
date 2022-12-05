@@ -533,6 +533,14 @@ res := time.IsAutumn()
 
 // 是否是冬季
 res := time.IsWinter()
+~~~
+
+
+#### 判断是否是几月
+
+~~~go
+// 准备时间
+time := datebin.Parse("2022-10-23 22:18:56")
 
 // 是否是一月
 res := time.IsJanuary()
@@ -569,4 +577,137 @@ res := time.IsNovember()
 
 // 是否是十二月
 res := time.IsDecember()
+~~~
+
+
+#### 判断是否是某星座
+
+~~~go
+// 准备时间
+time := datebin.Parse("2022-10-23 22:18:56")
+
+// 摩羯座
+res := time.IsCapricornStar()
+
+// 水瓶座
+res := time.IsAquariusStar()
+
+// 双鱼座
+res := time.IsPiscesStar()
+
+// 白羊座
+res := time.IsAriesStar()
+
+// 金牛座
+res := time.IsTaurusStar()
+
+// 双子座
+res := time.IsGeminiStar()
+
+// 巨蟹座
+res := time.IsCancerStar()
+
+// 狮子座
+res := time.IsLeoStar()
+
+// 处女座
+res := time.IsVirgoStar()
+
+// 天秤座
+res := time.IsLibraStar()
+
+// 天蝎座
+res := time.IsScorpioStar()
+
+// 射手座
+res := time.IsSagittariusStar()
+~~~
+
+
+#### 判断是否是周几
+
+~~~go
+// 准备时间
+time := datebin.Parse("2022-10-23 22:18:56")
+
+// 是否是周一
+res := time.IsMonday()
+
+// 是否是周二
+res := time.IsTuesday()
+
+// 是否是周三
+res := time.IsWednesday()
+
+// 是否是周四
+res := time.IsThursday()
+
+// 是否是周五
+res := time.IsFriday()
+
+// 是否是周六
+res := time.IsSaturday()
+
+// 是否是周日
+res := time.IsSunday()
+
+// 是否是工作日
+res := time.IsWeekday()
+
+// 是否是周末
+res := time.IsWeekend()
+~~~
+
+
+#### 判断是否相等
+
+~~~go
+// 准备时间
+timeA := datebin.Parse("2022-10-23 22:18:56")
+timeB := datebin.Parse("2022-10-25 23:18:56")
+
+// 对比格式
+format := "Y-m-d H:i:s"
+layout := "2006-01-02 15:04:05"
+unit := "year" // year | week | day | hour | minute | second | micro | microsecond
+
+// 通过格式字符比对是否相等
+res := timeA.IsSameAs(format, timeB)
+
+// 通过布局字符比对是否相等
+res := timeA.IsSameAsWithLayout(layout, timeB)
+
+// 通过预设格式字符比对是否相等
+res := timeA.IsSameUnit(unit, timeB)
+
+// 是否同一年
+res := timeA.IsSameYear(timeB)
+
+// 是否是同一个月
+res := timeA.IsSameMonth(timeB)
+
+// 是否同一天
+res := timeA.IsSameDay(timeB)
+
+// 是否同一小时
+res := timeA.IsSameHour(timeB)
+
+// 是否同一分钟
+res := timeA.IsSameMinute(timeB)
+
+// 是否同一秒
+res := timeA.IsSameSecond(timeB)
+
+// 是否是同一年的同一个月
+res := timeA.IsSameYearMonth(timeB)
+
+// 是否是同一个月的同一天
+res := timeA.IsSameMonthDay(timeB)
+
+// 是否是同一年的同一个月的同一天
+res := timeA.IsSameYearMonthDay(timeB)
+
+// 是否是相同生日日期
+res := timeA.IsSameBirthday(timeB)
+
 ~~~
