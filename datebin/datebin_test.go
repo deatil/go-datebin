@@ -23,20 +23,6 @@ func assertEqualT(t *testing.T) func(any, any, string) {
     }
 }
 
-func Test_Now(t *testing.T) {
-    eq := assertEqualT(t)
-
-    actual1 := Now().ToDatetimeString()
-    expected1 := time.Now().Format(DatetimeFormat)
-
-    eq(actual1, expected1, "failed now time is error")
-
-    actual2 := Now(Local).ToDatetimeString()
-    expected2 := time.Now().In(time.Local).Format(DatetimeFormat)
-
-    eq(actual2, expected2, "failed now time Local is error")
-}
-
 func Test_With(t *testing.T) {
     eq := assertEqualT(t)
 

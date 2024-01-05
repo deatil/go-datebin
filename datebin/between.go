@@ -11,7 +11,7 @@ func (this Datebin) NYearStart(year int) Datebin {
     }
 
     if year < 0 {
-        year = 0
+        year = 1
     }
 
     date := (this.Year() / year) * year
@@ -27,7 +27,7 @@ func (this Datebin) NYearEnd(year int) Datebin {
     }
 
     if year < 0 {
-        year = 0
+        year = 1
     }
 
     date := (this.Year() / year) * year + (year - 1)
