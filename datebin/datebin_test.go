@@ -67,3 +67,41 @@ func Test_Get(t *testing.T) {
     eq(d.GetLocation(), loc, "failed loc")
     eq(d.GetErrors(), errs, "failed Errors")
 }
+
+func Test_MarshalBinary(t *testing.T) {
+    eq := assertEqualT(t)
+
+    date := "2024-06-05 21:15:12"
+
+    marshaled, err := Parse(date, UTC).MarshalBinary()
+    if err != nil {
+        t.Fatal(err)
+    }
+
+    var tt Datebin
+    err = tt.UnmarshalBinary(marshaled)
+    if err != nil {
+        t.Fatal(err)
+    }
+
+    eq(tt.ToDatetimeString(UTC), date, "failed MarshalBinary")
+}
+
+func Test_GobEncode(t *testing.T) {
+    eq := assertEqualT(t)
+
+    date := "2024-06-05 21:15:12"
+
+    marshaled, err := Parse(date, UTC).GobEncode()
+    if err != nil {
+        t.Fatal(err)
+    }
+
+    var tt Datebin
+    err = tt.GobDecode(marshaled)
+    if err != nil {
+        t.Fatal(err)
+    }
+
+    eq(tt.ToDatetimeString(), date, "failed GobEncode")
+}

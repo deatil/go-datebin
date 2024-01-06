@@ -11,10 +11,10 @@ import (
  * @author deatil
  */
 type Datetimes struct {
-    // 开始时间
+    // 开始时间 / start time
     Start datebin.Datebin
 
-    // 结束时间
+    // 结束时间 / end time
     End datebin.Datebin
 }
 
@@ -97,4 +97,44 @@ func (this Datetimes) swap(x, y Datetimes) (Datetimes, Datetimes) {
     }
 
     return left, right
+}
+
+// 范围长度 / Length
+func (this Datetimes) Length() int64 {
+    return this.End.Timestamp() - this.Start.Timestamp()
+}
+
+// 范围长度纳米 / LengthWithNanosecond
+func (this Datetimes) LengthWithNanosecond() int64 {
+    return this.End.TimestampWithNanosecond() - this.Start.TimestampWithNanosecond()
+}
+
+// 大于 d / gt
+func (this Datetimes) Gt(d Datetimes) bool {
+    return this.LengthWithNanosecond() > d.LengthWithNanosecond()
+}
+
+// 小于 d / lt
+func (this Datetimes) Lt(d Datetimes) bool {
+    return this.LengthWithNanosecond() < d.LengthWithNanosecond()
+}
+
+// 等于 d / eq
+func (this Datetimes) Eq(d Datetimes) bool {
+    return this.LengthWithNanosecond() == d.LengthWithNanosecond()
+}
+
+// 不等于 d / Ne
+func (this Datetimes) Ne(d Datetimes) bool {
+    return !this.Eq(d)
+}
+
+// 大于等于 d / Gte
+func (this Datetimes) Gte(d Datetimes) bool {
+    return this.Gt(d) || this.Eq(d)
+}
+
+// 小于等于 d / Lte
+func (this Datetimes) Lte(d Datetimes) bool {
+    return this.Lt(d) || this.Eq(d)
 }
