@@ -38,6 +38,21 @@ func Test_Parse(t *testing.T) {
             format: "20060102150405",
             date: "20240103211512",
         },
+        {
+            index: "index-6",
+            format: "2006-01-02 15:04:05.999",
+            date: "2024-01-03 21:15:12.123",
+        },
+        {
+            index: "index-7",
+            format: "2006-01-02 15:04:05.999999",
+            date: "2024-01-03 21:15:12.123123",
+        },
+        {
+            index: "index-8",
+            format: "2006-01-02 15:04:05.999999999",
+            date: "2024-01-03 21:15:12.123123123",
+        },
     }
 
     for _, td := range tests {
@@ -90,6 +105,24 @@ func Test_Parse2(t *testing.T) {
             format: "20060102150405",
             tz: "Asia/Shanghai",
             date: "20240103211512",
+        },
+        {
+            index: "index-6",
+            format: "2006-01-02 15:04:05.999",
+            tz: "Asia/Shanghai",
+            date: "2024-01-03 21:15:12.123",
+        },
+        {
+            index: "index-7",
+            format: "2006-01-02 15:04:05.999999",
+            tz: "Asia/Shanghai",
+            date: "2024-01-03 21:15:12.123123",
+        },
+        {
+            index: "index-8",
+            format: "2006-01-02 15:04:05.999999999",
+            tz: "Asia/Shanghai",
+            date: "2024-01-03 21:15:12.123123123",
         },
     }
 
