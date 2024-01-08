@@ -2,7 +2,7 @@
 
 ### Desc
 
-*  go-datebin is simple datetime parse pkg.
+*  go-datebin is a simple datetime parse pkg.
 
 [中文](README_CN.md) | English
 
@@ -30,25 +30,25 @@ func main() {
     date := datebin.
         Now().
         ToDatetimeString()
-    // output: 2024-1-6 12:06:12
+    // output: 2024-01-06 12:06:12
 
     // Parse date and have no timezone
     date2 := datebin.
         Parse("2032-03-15 12:06:17").
         ToDatetimeString(datebin.UTC)
-    // output: 2032-3-15 12:06:17
+    // output: 2032-03-15 12:06:17
 
     // Parse date and have timezone
     date2 := datebin.
         ParseWithLayout("2032-03-15 12:06:17", datebin.DatetimeFormat, datebin.GMT).
         ToDatetimeString()
-    // output: 2032-3-15 12:06:17
+    // output: 2032-03-15 12:06:17
 
     // set time and format output
     date3 := datebin.
         FromDatetime(2032, 3, 15, 12, 56, 5).
         ToFormatString("Y/m/d H:i:s")
-    // output: 2032/3/15 12:56:05
+    // output: 2032/03/15 12:56:05
 }
 
 ~~~
