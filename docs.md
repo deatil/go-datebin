@@ -23,11 +23,11 @@ go-datebin some using example, more see [docs](https://pkg.go.dev/github.com/dea
     - [IsMonth](#IsMonth)
     - [IsStar](#IsStar)
     - [IsWeek](#IsWeek)
-    - [IsEq](#IsEq)
+    - [IsEqual](#IsEqual)
 - [Setting](#Setting)
 - [Get Between](#GetBetween)
 - [Datetimes](#Datetimes)
-- [Format Sign](#FormatSign)
+- [Format With Sign](#FormatWithSign)
 
 
 #### Import
@@ -783,9 +783,9 @@ res := time.IsWeekend()
 ~~~
 
 
-#### IsEq
+#### IsEqual
 
-some `IsEq` functions
+some `IsEqual` functions
 
 ~~~go
 timeA := datebin.Parse("2022-10-23 22:18:56")
@@ -988,7 +988,7 @@ var res bool = d1.Lte(d2)
 ~~~
 
 
-#### FormatSign
+#### FormatWithSign
 
 | sign | desc |  length | range | example |
 | :------------: | :------------: | :------------: | :------------: | :------------: |
