@@ -8,26 +8,26 @@ go-datebin some using example, more see [docs](https://pkg.go.dev/github.com/dea
 ### Index
 
 - [Import](#Import)
-- [Get Errors](#Get Errors)
-- [Data get and set](#Data get and set)
-- [Today more](#Today more)
+- [Get Errors](#GetErrors)
+- [Data get and set](#GetAndSetData)
+- [Today more](#TodayAndMore)
 - [Input](#Input)
 - [Parse](#Parse)
 - [Output](#Output)
 - [Helper](#Helper)
 - [Compare](#Compare)
-- [Get Time](#Get Time)
-- [Diff Time](#Diff Time)
-- [Add Or Sub](#Add Or Sub)
+- [Get Time](#GetTime)
+- [Diff Time](#DiffTime)
+- [Add Or Sub](#AddOrSub)
 - [Is](#Is)
     - [IsMonth](#IsMonth)
     - [IsStar](#IsStar)
     - [IsWeek](#IsWeek)
     - [IsEq](#IsEq)
 - [Setting](#Setting)
-- [Get Between](#Get Between)
+- [Get Between](#GetBetween)
 - [Datetimes](#Datetimes)
-- [Format type](#Format type)
+- [Format Sign](#FormatSign)
 
 
 #### Import
@@ -41,7 +41,7 @@ import (
 ~~~
 
 
-#### Get Errors
+#### GetErrors
 
 ~~~go
 // type 1
@@ -68,7 +68,7 @@ if err != nil {
 ~~~
 
 
-#### Data get and set
+#### GetAndSetData
 
 ~~~go
 // set Time
@@ -100,7 +100,7 @@ datebin.Error() error
 ~~~
 
 
-#### Today more
+#### TodayAndMore
 
 some const example
 ~~~go
@@ -331,7 +331,7 @@ res := timeA.Truncate(d time.Duration)
 ~~~
 
 
-#### Get Time
+#### GetTime
 
 get time data.
 
@@ -429,7 +429,7 @@ res := time.WeekOfYear()
 ~~~
 
 
-#### Diff Time
+#### DiffTime
 
 get diff data from two times
 
@@ -472,7 +472,7 @@ data := timeA.Diff(timeB).Format("{WW} week {DD} Day {HH} Hour {ii} Minute {ss} 
 ~~~
 
 
-#### Add Or Sub
+#### AddOrSub
 
 some `Add` or `Sub` functions
 
@@ -903,7 +903,7 @@ date := res.ToDatetimeString()
 ~~~
 
 
-#### Get Between
+#### GetBetween
 
 get Between time data
 
@@ -988,7 +988,7 @@ var res bool = d1.Lte(d2)
 ~~~
 
 
-#### Format type
+#### FormatSign
 
 | sign | desc |  length | range | example |
 | :------------: | :------------: | :------------: | :------------: | :------------: |
