@@ -4,6 +4,8 @@ go-datebin 常用的一些使用示例。更多未提及方法可以 [点击文�
 
 go-datebin some using example, more see [docs](https://pkg.go.dev/github.com/deatil/go-datebin)
 
+中文 | [English](docs.md)
+
 
 ### 目录 / Index
 
