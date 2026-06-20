@@ -318,17 +318,17 @@ func Test_Age(t *testing.T) {
 	}{
 		{
 			index: "index-1",
-			date1: "2027-06-06 21:15:12",
+			date1: time.Now().UTC().AddDate(2, 0, 0).Format(DatetimeFormat),
 			check: -2,
 		},
 		{
 			index: "index-2",
-			date1: "2013-10-12 21:15:12",
+			date1: time.Now().UTC().AddDate(-11, 0, 0).Format(DatetimeFormat),
 			check: 11,
 		},
 		{
-			index: "index-2",
-			date1: "2024-10-12 21:15:12",
+			index: "index-3",
+			date1: time.Now().UTC().AddDate(0, 0, 0).Format(DatetimeFormat),
 			check: 0,
 		},
 	}

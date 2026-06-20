@@ -591,7 +591,8 @@ func Test_IsCurrentMonth(t *testing.T) {
 		},
 		{
 			index: "index-3",
-			date:  "2021-06-05 21:15:12",
+			// date:  "2021-06-05 21:15:12",
+			date:  time.Now().UTC().AddDate(0, 3, 0).Format(DatetimeFormat),
 			tz:    "CET",
 			check: false,
 		},
